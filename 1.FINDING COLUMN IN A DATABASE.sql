@@ -135,4 +135,10 @@ select schema_name(tab.schema_id) as schema_name,
   order by schema_name,table_name, column_name
 
 	
-			
+SELECT      c.name  AS 'ColumnName'
+            ,t.name AS 'TableName'
+FROM        sys.columns c
+JOIN        sys.tables  t   ON c.object_id = t.object_id
+WHERE       c.name LIKE '%MyName%'
+ORDER BY    TableName
+            ,ColumnName;			
